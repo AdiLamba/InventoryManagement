@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="460.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InventoryGuiController">
+   <center>
+      <Pane prefHeight="394.0" prefWidth="631.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="inventoryTableView" layoutX="-1.0" layoutY="-1.0" prefHeight="365.0" prefWidth="629.0">
+              <columns>
+                <TableColumn fx:id="itemIdColumn" prefWidth="53.71428024768829" text="Item Id" />
+                <TableColumn fx:id="nameTableColumn" prefWidth="107.42852020263672" text="Name" />
+                  <TableColumn fx:id="quantityTableColumn" prefWidth="69.7142333984375" text="Quantity" />
+                  <TableColumn fx:id="priceTableColumn" prefWidth="76.57136535644531" text="Sale Price" />
+                  <TableColumn fx:id="reorderPointTableColumn" minWidth="0.0" prefWidth="91.4285888671875" text="Reorder Point" />
+                  <TableColumn fx:id="orderPriceTableColumn" minWidth="0.0" prefWidth="75.4285888671875" text="Order Price" />
+                  <TableColumn fx:id="expiryDateTableColumn" minWidth="0.0" prefWidth="81.142822265625" text="Expiry Date" />
+                  <TableColumn fx:id="dateAddedTableColumn" minWidth="8.1904296875" prefWidth="73.71435546875" text="Date Added" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </center>
+   <left>
+      <TabPane prefHeight="394.0" prefWidth="229.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Add Item">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="318.0" prefWidth="230.0">
+                           <children>
+                              <VBox prefHeight="319.0" prefWidth="229.0">
+                                 <children>
+                                    <HBox prefHeight="319.0" prefWidth="247.0">
+                                       <children>
+                                          <VBox prefHeight="184.0" prefWidth="83.0" spacing="10.0">
+                                             <children>
+                                                <Label text="Item ID" />
+                                                <Label text="Name" />
+                                                <Label text="Quantity" />
+                                                <Label prefHeight="17.0" prefWidth="55.0" text="Sale Price" />
+                                                <Label prefHeight="17.0" prefWidth="118.0" text="Reorder Point" />
+                                                <Label prefHeight="17.0" prefWidth="73.0" text="Order Cost" />
+                                                <Label prefHeight="17.0" prefWidth="77.0" text="Expiry Date" />
+                                                <Label prefHeight="17.0" prefWidth="81.0" text="Date Added" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefHeight="319.0" prefWidth="164.0" spacing="10.0">
+                                             <children>
+                                                <TextField fx:id="addItemIdTextField" onAction="#handleAddItemIdEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="addNameTextField" layoutX="10.0" layoutY="10.0" onAction="#handleAddNameEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="addQuantityTextField" layoutX="10.0" layoutY="27.0" onAction="#handleAddQuantityEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="addSalePriceTextField" onAction="#handleAddSalePriceEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="addReorderPointTextField" onAction="#handleAddReorderPointEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="addOrderCostTextField" onAction="#handleAddOrderCostEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <DatePicker fx:id="addExpiryDateDatePicker" onAction="#handleAddExpiryDateEntered" prefHeight="0.0" prefWidth="130.0">
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets top="-5.0" />
+                                                   </padding>
+                                                </DatePicker>
+                                                <DatePicker fx:id="addDateAddedDatePicker" onAction="#handleAddDateAddedEntered">
+                                                   <padding>
+                                                      <Insets top="-5.0" />
+                                                   </padding>
+                                                </DatePicker>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                                                   <children>
+                                                      <Button fx:id="addClearButton" mnemonicParsing="false" onAction="#addClearButtonClicked" text="Clear" />
+                                                      <Button fx:id="addSubmitButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#addSubmitButtonClicked" text="Submit" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <padding>
+                                                <Insets left="20.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Sell Item">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="318.0" prefWidth="230.0">
+                           <children>
+                              <VBox prefHeight="319.0" prefWidth="205.0">
+                                 <children>
+                                    <HBox prefHeight="236.0" prefWidth="205.0">
+                                       <children>
+                                          <VBox prefHeight="184.0" prefWidth="83.0" spacing="10.0">
+                                             <children>
+                                                <Label text="Item ID" />
+                                                <Label text="Amount Sold" />
+                                                <Label prefHeight="17.0" prefWidth="81.0" text="Date Sold" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefHeight="137.0" prefWidth="139.0" spacing="10.0">
+                                             <children>
+                                                <TextField prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField layoutX="10.0" layoutY="10.0" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField layoutX="10.0" layoutY="27.0" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                             </children>
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="Clear" />
+                                          <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Submit" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="318.0" prefWidth="230.0">
+                           <children>
+                              <VBox prefHeight="319.0" prefWidth="229.0">
+                                 <children>
+                                    <HBox prefHeight="319.0" prefWidth="247.0">
+                                       <children>
+                                          <VBox prefHeight="184.0" prefWidth="83.0" spacing="10.0">
+                                             <children>
+                                                <Label text="Item ID" />
+                                                <Label text="Quantity" />
+                                                <Label prefHeight="17.0" prefWidth="55.0" text="Sale Price" />
+                                                <Label text="Date Sold" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefHeight="319.0" prefWidth="164.0" spacing="10.0">
+                                             <children>
+                                                <TextField fx:id="sellItemIdTextField" onAction="#handleSellItemIdEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="sellQuantityTextField" layoutX="10.0" layoutY="10.0" onAction="#handleSellQuantityEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="sellSalePriceTextField" layoutX="10.0" layoutY="27.0" onAction="#handleSellSalePriceEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <DatePicker fx:id="sellDateSoldDatePicker" layoutX="30.0" layoutY="97.0" />
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                                                   <children>
+                                                      <Button fx:id="sellClearButton" mnemonicParsing="false" onAction="#sellClearButtonClicked" text="Clear" />
+                                                      <Button fx:id="sellSubmitButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#sellSubmitButtonClicked" text="Submit" />
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                   <padding>
+                                                      <Insets top="165.0" />
+                                                   </padding>
+                                                </HBox>
+                                             </children>
+                                             <padding>
+                                                <Insets left="20.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab text="Edit Item">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="318.0" prefWidth="230.0">
+                           <children>
+                              <VBox prefHeight="319.0" prefWidth="229.0">
+                                 <children>
+                                    <HBox prefHeight="319.0" prefWidth="247.0">
+                                       <children>
+                                          <VBox prefHeight="184.0" prefWidth="83.0" spacing="10.0">
+                                             <children>
+                                                <Label text="Item ID" />
+                                                <Label text="Name" />
+                                                <Label text="Quantity" />
+                                                <Label prefHeight="17.0" prefWidth="55.0" text="Sale Price" />
+                                                <Label prefHeight="17.0" prefWidth="118.0" text="Reorder Point" />
+                                                <Label prefHeight="17.0" prefWidth="73.0" text="Order Cost" />
+                                                <Label prefHeight="17.0" prefWidth="77.0" text="Expiry Date" />
+                                                <Label prefHeight="17.0" prefWidth="81.0" text="Date Added" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefHeight="319.0" prefWidth="164.0" spacing="10.0">
+                                             <children>
+                                                <TextField fx:id="editItemIdTextField" onAction="#handleEditItemIdEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="editNameTextField" layoutX="10.0" layoutY="10.0" onAction="#handleEditNameEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="editQuantityTextField" layoutX="10.0" layoutY="27.0" onAction="#handleEditQuantityEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="editSalePriceTextField" onAction="#handleEditSalePriceEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="editReorderPointTextField" onAction="#handleEditReorderPointEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <TextField fx:id="editOrderCostTextField" onAction="#handleOrderCostEntered" prefHeight="17.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </TextField>
+                                                <DatePicker fx:id="editExpriyDateDatePicker" onAction="#handleEditExpiryDateEntered" prefHeight="0.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets top="-5.0" />
+                                                   </padding>
+                                                </DatePicker>
+                                                <DatePicker fx:id="editDateAddedDatePicker" onAction="#handleDateAddedEntered" prefHeight="0.0" prefWidth="130.0">
+                                                   <padding>
+                                                      <Insets top="-5.0" />
+                                                   </padding>
+                                                </DatePicker>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                                                   <children>
+                                                      <Button fx:id="editClearButton" mnemonicParsing="false" onAction="#handleEditClearButtonClicked" text="Clear" />
+                                                      <Button fx:id="editSubmitButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleEditSubmitButtonClicked" text="Submit" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <padding>
+                                                <Insets left="20.0" right="5.0" top="5.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+         <BorderPane.margin>
+            <Insets left="1.0" />
+         </BorderPane.margin>
+      </TabPane>
+   </left>
+   <top>
+      <HBox prefHeight="36.0" prefWidth="611.0" spacing="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="0.0" prefWidth="46.0" text="Back">
+               <HBox.margin>
+                  <Insets top="4.0" />
+               </HBox.margin>
+            </Button>
+            <Label prefHeight="36.0" prefWidth="404.0" text="Inventory" underline="true">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </HBox>
+   </top>
+</BorderPane>
